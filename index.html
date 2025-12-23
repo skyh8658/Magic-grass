@@ -129,6 +129,16 @@ function handleClick(e){
     return;
   }
 
+
+function sendProgressToUnity(progress) {
+    fetch("http://192.168.50.128:3000/setProgress", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ progress: progress })
+    }).catch(err => console.log(err));
+}
+  
+
   timer = setTimeout(() => {
     clickCount = 0;
     progressBar.style.width = '0%';
@@ -141,3 +151,4 @@ btn.addEventListener('click', handleClick, false);
 
 </body>
 </html>
+
